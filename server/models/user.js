@@ -1,4 +1,4 @@
-const sequelize = require('../database/dataAccessLayer');
+const sequelize = require('./index');
 const Sequelize = require('sequelize');
 
 const Model = Sequelize.Model;

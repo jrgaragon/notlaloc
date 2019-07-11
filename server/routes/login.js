@@ -3,7 +3,7 @@ const User = require('../models/user');
 const app = express();
 
 
-app.get('/users', (request, response) => {
+app.post('/login', (request, response) => {
     User.findAll().then(users => {
         response.json({status: 'ok', count: users.length, users});
     }, (err) => {
