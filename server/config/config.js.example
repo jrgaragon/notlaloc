@@ -1,15 +1,16 @@
 process.env.PORT = process.env.PORT || 3000;
-process.env.database = 'HbhOn83foM';
-process.env.user = 'HbhOn83foM';
-process.env.password = '';
+process.env.database = 'database';
+process.env.user = 'user';
+process.env.password = 'password';
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+process.env.SECRETKEY = "SECRET KEY";
 
 let urlDatabase;
 
 if (process.env.NODE_ENV === 'dev') {
-    urlDatabase = 'remotemysql.com'
+    urlDatabase = ''
 } else {
-    urlDatabase = 'proddatabase';
+    urlDatabase = '';
 }
 
 process.env.URLDB = urlDatabase;
