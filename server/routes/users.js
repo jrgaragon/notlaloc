@@ -4,22 +4,19 @@ const userService = require('./login');
 const router = express();
 
 
-router.get('/users', (request, response) => {
-    User.findAll().then(users => {
-        response.json({status: 'ok', count: users.length, users});
-    }, (err) => {
-        response.status(500).json({status: 'error', error: err});
-    });
+router.get('/getUsers', (request, response) => {
+    userService.getAll().then(users => {
+        response.json(users);
+    }).catch(err => next(err));    
 });
 
 // router.post('/authenticate', authenticate);
 
 router.post('/authenticate', (request, response, next) => {
-    userService.authenticate(request.body).then(user => user ? response.json(user) : 
-        response.status(400).json({message: 'Username or password is incorrect'})).catch(err => next(err));
+    userService.authenticate(request.body).then(user => user ? response.json(user) : response.status(400).json({message: 'Username or password is incorrect'})).catch(err => next(err));
 });
 
-router.post('/testing', (request, response, next) => {
+router.get('/noAuth', (request, response, next) => {
     response.json({status: 'ok'});
 });
 

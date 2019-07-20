@@ -1,16 +1,21 @@
 process.env.PORT = process.env.PORT || 3000;
-process.env.database = 'database';
-process.env.user = 'user';
-process.env.password = 'password';
+process.env.database = '';
+process.env.user = '';
+process.env.password = '';
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
-process.env.SECRETKEY = "SECRET KEY";
+process.env.SECRETKEY = '';
+process.env.DATABASEPORT = 3306;
 
-let urlDatabase;
+let urlDatabase = 0;
+let port = 0;
 
 if (process.env.NODE_ENV === 'dev') {
-    urlDatabase = ''
+    urlDatabase = '';
+    port = 3306;
 } else {
     urlDatabase = '';
+    port = 0;
 }
 
 process.env.URLDB = urlDatabase;
+process.env.DATABASEPORT = port;
