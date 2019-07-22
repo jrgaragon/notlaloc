@@ -43,8 +43,7 @@ async function authorize(request, response, next) {
         let token = request.headers['authorization'].split(' ')[1].trim();
         let decoded = jwt.verify(token, process.env.SECRETKEY);
         // validate roleid vs operation
-        console.log('auth req');
-        
+                
         console.log(decoded);
         next();
     } else {
